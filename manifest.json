@@ -1,0 +1,17 @@
+{
+  "name": "Hide Facebook Sponsored Posts",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "An extension for removing sponsored posts from your Facebook News Feed.",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.facebook.com/*"],
+      "js": ["scripts/libs/jquery.min.js", "scripts/page.js"]
+    }
+  ]
+}
