@@ -1,0 +1,31 @@
+/* hidden */
+.sponsoredPost .sponsoredMention {
+  margin: 18px 0;
+  opacity: 0.8;
+}
+.sponsoredPost .sponsoredMention a {
+  font-weight: bold;
+}
+.sponsoredPost .sponsoredMention .toggleMention .show {
+  display: inline;
+}
+.sponsoredPost .sponsoredMention .toggleMention .hide {
+  display: none;
+}
+.sponsoredPost .storyContent {
+  display: none;
+}
+/* revealed */
+.revealedSponsoredPost .sponsoredMention {
+  margin: 18px 0 0 0;
+  opacity: 1;
+}
+.revealedSponsoredPost .sponsoredMention .toggleMention .show {
+  display: none;
+}
+.revealedSponsoredPost .sponsoredMention .toggleMention .hide {
+  display: inline;
+}
+.revealedSponsoredPost .storyContent {
+  display: block;
+}
