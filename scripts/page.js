@@ -35,7 +35,10 @@ var injectSponsoredMention = function($post) {
     $post.toggleClass('revealedSponsoredPost');
   });
   // Add reference to sponsored subject
-  var subjectAnchor = $post.find('.uiStreamHeadline a:last');
+  var subjectAnchor = $post.find('.actorName a:first');
+  if (!subjectAnchor.length) {
+    subjectAnchor = $post.find('.uiAttachmentTitle a:first');
+  }
   if (subjectAnchor.length) {
     $sponsoredMention.append(' from ');
     subjectAnchor.clone().appendTo($sponsoredMention);
