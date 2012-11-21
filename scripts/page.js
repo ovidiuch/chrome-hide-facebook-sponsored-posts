@@ -48,7 +48,7 @@ $.fn.hideSponsoredPost = function() {
 };
 var totalCount = 0;
 // Since there wasn't any obvious way to listen to news feed changes, we had
-// to resport to a basic interval for checking whenever new items are loaded
+// to resort to a basic interval for checking whenever new items are loaded
 // within the feed
 announceSponsoredPosts(function($posts) {
   totalCount += $posts.length;
