@@ -1,18 +1,15 @@
-var INTERVAL_PERIOD = 50; // ms
-var getHomepageList = function() {
-  return $('ul.uiStreamHomepage');
-};
-var getSponsoredPosts = function(list) {
-  var $sponsoredTags = list.find('.uiStreamAdditionalLogging');
+var INTERVAL_PERIOD = 200; // ms
+var getSponsoredPosts = function() {
+  var $sponsoredTags = $('ul.uiStreamHomepage .uiStreamAdditionalLogging');
   // Only return sponsored posts that have not yet been flagged
   return $sponsoredTags.parents('li.uiStreamStory:not(.sponsoredPost)');
 };
-var announceSponsoredPosts = function($list, callback) {
+var announceSponsoredPosts = function(callback) {
   var children;
   window.setInterval(function() {
-    $posts = getSponsoredPosts($list);
+    $posts = getSponsoredPosts();
     if ($posts.length) {
-      callback($posts, $posts.length);
+      callback($posts);
     }
   }, INTERVAL_PERIOD);
 };
@@ -49,14 +46,12 @@ $.fn.hideSponsoredPost = function() {
     injectSponsoredMention($(this));
   });
 };
-$(function() {
-  var totalCount = 0;
-  // Since there wasn't any obvious way to listen to news feed changes, we had
-  // to resport to a basic interval for checking whenever new items are loaded
-  // within the feed
-  announceSponsoredPosts(getHomepageList(), function($posts, count) {
-    totalCount += count;
-    console.log('Hid ' + count + ' more sponsored post. ' + totalCount + ' posts hidden so far.');
-    $posts.hideSponsoredPost();
-  });
+var totalCount = 0;
+// Since there wasn't any obvious way to listen to news feed changes, we had
+// to resport to a basic interval for checking whenever new items are loaded
+// within the feed
+announceSponsoredPosts(function($posts) {
+  totalCount += $posts.length;
+  console.log('Hid ' + $posts.length + ' more sponsored post. ' + totalCount + ' posts hidden so far.');
+  $posts.hideSponsoredPost();
 });
