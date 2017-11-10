@@ -1,31 +1,5 @@
-/* hidden */
-.sponsoredPost .sponsoredMention {
-  margin: 18px 0;
-  opacity: 0.8;
-}
-.sponsoredPost .sponsoredMention a {
-  font-weight: bold;
-}
-.sponsoredPost .sponsoredMention .toggleMention .show {
-  display: inline;
-}
-.sponsoredPost .sponsoredMention .toggleMention .hide {
-  display: none;
-}
-.sponsoredPost .storyContent {
-  display: none;
-}
-/* revealed */
-.revealedSponsoredPost .sponsoredMention {
-  margin: 18px 0 0 0;
-  opacity: 1;
-}
-.revealedSponsoredPost .sponsoredMention .toggleMention .show {
-  display: none;
-}
-.revealedSponsoredPost .sponsoredMention .toggleMention .hide {
-  display: inline;
-}
-.revealedSponsoredPost .storyContent {
-  display: block;
+.hiddenPost {
+  width: 100%;
+  height: 20px;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKklEQVQYV2NkgIKIuoUN+q4hDIwgPoxTacvdwIjMAUkyth/+2gCSgakEAOr9ELt2ymgLAAAAAElFTkSuQmCC)
 }
