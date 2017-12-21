@@ -1,6 +1,8 @@
-var INTERVAL_PERIOD = 750; // ms
+var INTERVAL_PERIOD = 500; // ms
 
 var hideSuggestedPosts_apply = function() {
+  var PARENT_CSS_MATCHER = "div[role*='article']";
+
   // only operate on the home page
   if(window.location.pathname != "/") { return; }
 
@@ -12,21 +14,21 @@ var hideSuggestedPosts_apply = function() {
   }
 
   if(window.hideSuggestedPosts_hideLikes) {
-    $("span:contains(' likes ')").parents('.userContentWrapper').html(hide);
-    $("span:contains(' like ')").parents('.userContentWrapper').html(hide);
+    $("span:contains(' likes ')").parents(PARENT_CSS_MATCHER).html(hide).fadeOut(150);
+    $("span:contains(' like ')").parents(PARENT_CSS_MATCHER).html(hide).fadeOut(150);
   }
   if(window.hideSuggestedPosts_hideEventLikes) {
-    $("span:contains(' is interested in ')").parents('.userContentWrapper').html(hide);
+    $("span:contains(' is interested in ')").parents(PARENT_CSS_MATCHER).html(hide).fadeOut(150);
   }
   if(window.hideSuggestedPosts_hideShares) {
-    $("span:contains(' shared ')").parents('.userContentWrapper').html(hide);
+    $("span:contains(' shared ')").parents(PARENT_CSS_MATCHER).html(hide).fadeOut(150);
   }
 
   // hide page suggestions — FB is using image sprites for sponsored labels on these
-  // so we need to look for something else. In this case, the PageLineButton is the clue. 
-  $("button[class*=PageLikeButton]").parents('.userContentWrapper').html(hide)
+  // so we need to look for something else. In this case, the PageLineButton is the clue.
+  $("button[class*=PageLikeButton]").parents(PARENT_CSS_MATCHER).html(hide).fadeOut(150)
 
-  var feedContent = $(".userContentWrapper"),
+  var feedContent = $(PARENT_CSS_MATCHER),
       keywordRegexps = [],
       regexps = [/Suggested Post/, /Sponsored/];
 
@@ -56,6 +58,7 @@ var hideSuggestedPosts_apply = function() {
 
     if(shouldHide) {
       el.innerHTML = hide(i, html);
+      $(el).fadeOut(150);
     }
   });
 };
