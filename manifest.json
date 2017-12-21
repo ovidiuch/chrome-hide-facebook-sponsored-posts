@@ -8,11 +8,15 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": ["*://*.facebook.com/*"],
       "css": ["styles/page.css"],
       "js": ["scripts/libs/jquery.min.js", "scripts/page.js"]
     }
-  ]
+  ],
+   "options_page": "options.html"
 }

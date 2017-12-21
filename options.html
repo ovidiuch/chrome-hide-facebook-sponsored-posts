@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hide Facebook Sponsored Posts Extension</title>
+  <style>
+    body {
+      padding: 20px;
+    }
+    p {
+      font-size: 120%
+    }
+    button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 130%;
+    }
+    input[type=text] {
+      margin: 8px 0px;
+      padding: 4px 4px;
+      font-size: 130%;
+    }
+    .statusWrapper {
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+<h1>Hide Facebook Sponsored Posts ++</h1>
+<p>In addition to hiding ads and sponsored posts, you can customize this extension to hide links shared by people or pages you follow as well as likes activities. If you want even more customization, you can enter one or more keywords separated by commas and we will attempt to hide any posts that match those keywords. Example keywrods can be like "trump,hate". Keyword matching is case insensitive.
+</p>
+<label>
+  <input type="checkbox" id="shares">
+  Hide shares.
+</label>
+<br />
+<label>
+  <input type="checkbox" id="likes">
+  Hide likes.
+</label>
+<br />
+<label>
+  <input type="checkbox" id="eventlikes">
+  Hide events interested in. Events <em>going to</em> will not be hidden.
+</label>
+<br />
+<br />
+<label>
+  Additional keywords (experimental):
+  <br />
+  <input type="text" id="keywords">
+</label>
+<br />
+<br />
+<button id="save">Save</button>
+<br />
+<br />
+<div class="statusWrapper">
+  <div id="status"></div>
+</div>
+<div>Report issues on <a href='https://github.com/skidding/chrome-hide-facebook-sponsored-posts/issues'>github</a></div>
+<script src="scripts/libs/jquery.min.js"></script>
+<script src="scripts/options.js"></script>
+</body>
+</html>
