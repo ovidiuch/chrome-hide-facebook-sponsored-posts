@@ -5,8 +5,10 @@ var hideSuggestedPosts_apply = function() {
   if(window.location.pathname != "/") { return; }
 
   function hide(selector, originalHtml) {
-    var h = encodeURIComponent(originalHtml);
-      return "<div class='hiddenPost' data-original-html='" + h + "'>&nbsp;</div>";
+    console.groupCollapsed("Hidden content");
+    console.log(originalHtml);
+    console.groupEnd();
+    return "<div class='hiddenPost'>&nbsp;</div>";
   }
 
   if(window.hideSuggestedPosts_hideLikes) {
@@ -21,18 +23,29 @@ var hideSuggestedPosts_apply = function() {
   }
 
   var feedContent = $(".userContentWrapper"),
-      regexps = [];
+      keywordRegexps = [],
+      regexps = [/Suggested Post/, /Sponsored/];
 
   window.hideSuggestedPosts_keywords.forEach(function(keyword) {
-    regexps.push(new RegExp(keyword.trim(), 'i'));
+    keyword = keyword.trim();
+    if(keyword.length > 0) {
+      // custom keywords become case-insensitive filters
+      regexps.push(new RegExp(keyword, 'i'));
+    }
   });
 
   feedContent.each(function(i,el) {
     var html = el.innerHTML,
         shouldHide = false;
 
-    regexps.forEach(function(regexp) {
-      if(html.match(regexp)) {
+    keywordRegexps.forEach(function(r) {
+      if(html.match(r)) {
+        shouldHide = true;
+      }
+    });
+
+    regexps.forEach(function(r) {
+      if(html.match(r)) {
         shouldHide = true;
       }
     });
@@ -54,8 +67,6 @@ chrome.storage.sync.get({
     } else {
       window.hideSuggestedPosts_keywords = [];
     }
-    window.hideSuggestedPosts_keywords.push('Suggested Post');
-    window.hideSuggestedPosts_keywords.push('Sponsored');
     window.hideSuggestedPosts_hideShares = items.hideShares;
     window.hideSuggestedPosts_hideLikes = items.hideLikes;
     window.hideSuggestedPosts_hideEventLikes = items.hideEventLikes;

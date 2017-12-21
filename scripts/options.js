@@ -2,12 +2,13 @@ function save_options() {
   var keywords = document.getElementById('keywords').value,
       hideShares = document.getElementById('shares').checked,
       hideLikes = document.getElementById('likes').checked,
-      hideEventLikes = document.getElementById('likes').checked;
+      hideEventLikes = document.getElementById('eventlikes').checked;
 
   chrome.storage.sync.set({
     keywords: keywords,
     hideShares: hideShares,
-    hideLikes: hideLikes
+    hideLikes: hideLikes,
+    hideEventLikes: hideEventLikes
   }, function() {
     $("#status")[0].innerHTML = "Options saved.";
     $("#status").fadeIn(400);
