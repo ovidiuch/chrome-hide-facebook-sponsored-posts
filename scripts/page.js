@@ -22,6 +22,10 @@ var hideSuggestedPosts_apply = function() {
     $("span:contains(' shared ')").parents('.userContentWrapper').html(hide);
   }
 
+  // hide page suggestions — FB is using image sprites for sponsored labels on these
+  // so we need to look for something else. In this case, the PageLineButton is the clue. 
+  $("button[class*=PageLikeButton]").parents('.userContentWrapper').html(hide)
+
   var feedContent = $(".userContentWrapper"),
       keywordRegexps = [],
       regexps = [/Suggested Post/, /Sponsored/];
