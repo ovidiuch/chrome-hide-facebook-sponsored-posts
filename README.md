@@ -10,7 +10,7 @@ Options
 
 The extension provides options to also hide content that fall in the categories listed below.
 
-The thinking behind these additional features is that we want to enable you to take even more more control of what you see in your feed. We take the point of view that this means seeing actual conversations your friends are having on Facebook. Posts people are making where they write something, photos being posted, comments fall in the category of _actual conversations_. The notifications feature in facebook is a great way to find out when someone likes content _you_ or tags you in something they shared. These are part of actual conversation mechnisms we want to continue to use, and the options below do not interfere with notifications.
+The thinking behind these additional features is that we want to enable you to take even more more control of what you see in your feed. We take the point of view that this means seeing actual conversations your friends are having on Facebook. Posts people are making where they write something, photos being posted, comments fall in the category of _actual conversations_. The notifications feature in facebook is a great way to find out when someone likes content _you_ or tags you in something they shared. These are part of actual conversation mechanisms we want to continue to use, and the options below do not interfere with notifications.
 
 ![image](./images/options.png)
 
@@ -36,3 +36,4 @@ A few things we want to improve that are outstanding at the moment,
 
 
 [@skidding](https://twitter.com/skidding)
+[@shyam-habarakada](https://twitter.com/shyamh)
